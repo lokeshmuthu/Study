@@ -6,7 +6,7 @@ To master modern JavaScript, developer roadmaps and comprehensive tutorials emph
 You should know why `let` and `const` (which are block-scoped)
 are preferred over `var` (which is function-scoped), and understand the "temporal dead zone".
 
-## 1.1. 🟢 1. `var` (Function Scoped)
+## 1.1. 🟢 var (Function Scoped)
 
 - Scope: Function-scoped
 - Can be re-declared and updated
@@ -31,7 +31,7 @@ var a = 10;
 console.log(a);
 ```
 
-## 1.2. 🔵 2. let (Block Scoped)
+## 1.2. 🔵 let (Block Scoped)
 
 Scope: Block { }
 Cannot be re-declared in same scope
@@ -73,7 +73,7 @@ let a = 10;
 
 ReferenceError: Cannot access 'a' before initialization
 
-## 1.3. 🔴 3. const (Block Scoped, Immutable Binding)
+## 1.3. 🔴 const (Block Scoped, Immutable Binding)
 
 Scope: Block { }
 Cannot be re-assigned
@@ -104,7 +104,7 @@ console.log(obj.name);
 
 Doe
 
-## ⚡ Key Differences Summary
+## 1.4. ⚡ Key Differences Summary
 
 | Feature        | var                 | let            | const          |
 |----------------|---------------------|----------------|----------------|
@@ -115,6 +115,8 @@ Doe
 | Initialization | Optional            | Optional       | Required       |
 
 * **Equality and Coercion:**difference between **strict equality (`===`) and loose equality (`==`)**.
+
+## 1.5. Equality and Coercion
 
 🔹 Strict Equality (===)
 
@@ -149,7 +151,7 @@ null == undefined // true
 | 0 == false        | true      | false      | Boolean coerced to number |
 | "" == 0           | true      | false      | Empty string coerced to 0 |
 
-### why `===` is considered the best practice.
+### 1.5.1. why `===` is considered the best practice.
 
 🔹 1. No Unexpected Type Conversion
 
@@ -185,7 +187,7 @@ Number("5") === 5   // true (you control conversion)
 
 * **Arrow Functions vs. Ordinary Functions:** Learn the syntax for both, but more importantly, understand how they differ in their handling of the **`this` context**. Arrow functions inherit `this` lexically from their surrounding scope, while ordinary functions have dynamic `this` based on how they are called.
 
-🔹 1. Syntax Difference
+## 2.1. 🔹 1. Syntax Difference
 
 ✅ Ordinary Function
 
@@ -203,7 +205,7 @@ const greet = () => {
 };
 ```
 
-🔹 2. The Key Difference: this Behavior
+## 2.2. 🔹 2. The Key Difference: this Behavior
 
 🔸 Ordinary Function (function)
 
@@ -243,7 +245,7 @@ obj.sayName(); // undefined ❌
 
 It takes this from outside (usually global scope)
 
-🔹 3. Why This Matters (Real Example)
+## 2.3. 🔹 3. Why This Matters (Real Example)
 
 ❌ Problem with Ordinary Function
 
@@ -273,7 +275,7 @@ function Counter() {
 
 👉 Arrow function uses parent this, so it works correctly
 
-⚡ When to Use What?
+## 2.4. ⚡ When to Use What?
 
 ✅ Use Arrow Functions:
 
@@ -662,13 +664,13 @@ for (let i = 1; i <= 3; i++) {
 
 * **Higher-Order Functions:** Master functions that accept other functions as arguments or return them, such as the built-in array methods **`.map()`, `.filter()`, and `.reduce()`**.
 
-## 🔹 What is a Higher-Order Function?
+## 4.1. 🔹 What is a Higher-Order Function?
 
 1. **Takes another function as an argument**, OR
 
 2. **Returns a function**
 
-## 🔹 1. Function as Argument
+## 4.2. 🔹 Function as Argument
 
 ```javascript
 function greet(name) {
@@ -684,7 +686,7 @@ processUser(greet); // Hello John
 
 👉 `greet` is passed as a callback
 
-## 🔹 2. Function Returning Another Function
+## 4.3. 🔹 Function Returning Another Function
 
 ```javascript
 function multiplier(x) {
@@ -696,9 +698,9 @@ const double = multiplier(2);
 console.log(double(5)); // 10
 ```
 
-## 🔹 Built-in Higher-Order Functions (Very Important)
+## 4.4. 🔹 Built-in Higher-Order Functions (Very Important)
 
-### ✅ 1. `.map()` → Transform each element
+### 4.4.1. ✅ 1. `.map()` → Transform each element
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -712,7 +714,7 @@ console.log(doubled); // [2, 4, 6]
 
 ---
 
-### ✅ 2. `.filter()` → Select elements
+### 4.4.2. ✅ 2. `.filter()` → Select elements
 
 ```javascript
 const numbers = [1, 2, 3, 4];
@@ -724,7 +726,7 @@ console.log(even); // [2, 4]
 
 ---
 
-### ✅ 3. `.reduce()` → Reduce to single value
+### 4.4.3. ✅ 3. `.reduce()` → Reduce to single value
 
 ```javascript
 const numbers = [1, 2, 3, 4];
@@ -738,7 +740,7 @@ console.log(sum); // 10
 
 ---
 
-## 🔹 Key Differences
+## 4.5. 🔹 Key Differences
 
 | Method      | Purpose   | Output       |
 | ----------- | --------- | ------------ |
@@ -748,7 +750,7 @@ console.log(sum); // 10
 
 ---
 
-## 🔹 Real-Life Example
+## 4.6. 🔹 Real-Life Example
 
 ```javascript
 const users = [
@@ -764,7 +766,7 @@ console.log(result); // ["Amit", "Neha"]
 
 ---
 
-## 🔹 Why Use Higher-Order Functions?
+## 4.7. 🔹 Why Use Higher-Order Functions?
 
 * ✅ Less code (clean & concise)
 
@@ -798,7 +800,7 @@ Let’s break it down clearly 👇
 
 ---
 
-## 🔹 1. Iterating Over Arrays
+## 5.1. 🔹 Iterating Over Arrays
 
 ### ✅ Common Methods
 
@@ -820,9 +822,9 @@ numbers.reduce((acc, curr) => acc + curr, 0); // 6
 
 ---
 
-## 🔹 2. Iterating Over Objects
+## 5.2. 🔹 Iterating Over Objects
 
-### 2.1 ✅ Using `for...in`
+### 5.2.1. ✅ Using `for...in`
 
 ```javascript
 const user = { name: "Amit", age: 25 };
@@ -833,7 +835,7 @@ for (let key in user) {
 
 ---
 
-### 2.2 ✅ Using `Object.keys`, `values`, `entries`
+### 5.2.2. ✅ Using `Object.keys`, `values`, `entries`
 
 ```javascript
 const user = { name: "Amit", age: 25 };
@@ -852,9 +854,9 @@ Object.entries(user).forEach(([key, value]) => {
 
 ---
 
-## 🔹 3. Manipulating Arrays & Objects
+## 5.3. 🔹 Manipulating Arrays & Objects
 
-### 3.1 ✅ Array Operations
+### 5.3.1. ✅ Array Operations
 
 ```javascript
 const arr = [1, 2];
@@ -864,7 +866,7 @@ arr.shift();   // remove first
 arr.unshift(0);// add at start
 ```
 
-### 3.2 ✅ Object Operations
+### 5.3.2. ✅ Object Operations
 
 ```javascript
 const obj = { name: "Amit" };
@@ -872,7 +874,7 @@ obj.age = 25;      // add
 delete obj.name;   // delete
 ```
 
-## 🔹 4. `Map` (Better than Object in some cases)
+## 5.4. 🔹 `Map` (Better than Object in some cases)
 
 A **`Map`** is a collection of key-value pairs like objects, but more powerful.
 
@@ -883,7 +885,7 @@ map.set(1, "number key");
 console.log(map.get("name")); // Amit
 ```
 
-## ✅ Why Use `Map` Instead of Object?
+## 5.5. ✅ Why Use `Map` Instead of Object?
 
 1. Keys can be **any type** (not just strings)
 
@@ -897,7 +899,7 @@ for (let [key, value] of map) {
 }
 ```
 
-## 🔹 5. `Set` (Unique Values Only)
+## 5.6. 🔹 `Set` (Unique Values Only)
 
 A **`Set`** stores **only unique values**
 
@@ -906,9 +908,9 @@ const set = new Set([1, 2, 2, 3]);
 console.log(set); // {1, 2, 3}
 ```
 
-## ✅ Common Uses of `Set`
+## 5.7. ✅ Common Uses of `Set`
 
-### Remove duplicates
+### 5.7.1. Remove duplicates
 
 ```javascript
 const nums = [1, 2, 2, 3];
@@ -916,14 +918,14 @@ const unique = [...new Set(nums)];
 console.log(unique); // [1, 2, 3]
 ```
 
-### Check existence quickly
+### 5.7.2. Check existence quickly
 
 ```javascript
 const set = new Set([1, 2, 3]);
 console.log(set.has(2)); // true
 ```
 
-# 🔹 6. Quick Comparison
+# 5.8. 🔹 Quick Comparison
 
 | Feature       | Object            | Map      | Set   |
 | ------------- | ----------------  | -------- | -----   |
@@ -933,25 +935,25 @@ console.log(set.has(2)); // true
 | Unique Values | ❌ No             | ❌ No   | ✅ Yes   |
 | Iteration     | Medium            | Easy     | Easy     |
 
-# 🔹 When to Use What?
+# 5.9. 🔹 When to Use What?
 
-### ✅ Use Array:
+### 5.9.1. ✅ Use Array:
 
 * Ordered list
 
 * Looping & transformations
 
-### ✅ Use Object:
+### 5.9.2. ✅ Use Object:
 
 * Simple key-value storage
 
-### ✅ Use Map:
+### 5.9.3. ✅ Use Map:
 
 * Dynamic keys (any type)
 
 * Frequent additions/removals
 
-### ✅ Use Set:
+### 5.9.4. ✅ Use Set:
 
 * Remove duplicates
 
@@ -1100,7 +1102,7 @@ function logAll(...args) {
 
 * **The Event Loop and Call Stack:** Understand JavaScript's single-threaded nature and how the event loop processes asynchronous microtasks and macrotasks without blocking the main thread.
 
-# 🔹 6.1. JavaScript is Single-Threaded
+# 6.1. 🔹 JavaScript is Single-Threaded
 
 * Only **one task runs at a time**
 
@@ -1108,7 +1110,7 @@ function logAll(...args) {
 
 👉 But still handles async tasks (like API calls, timers) using the **event loop**
 
-# 🔹 6.2. Call Stack (Execution Context)
+# 6.2. 🔹 Call Stack (Execution Context)
 
 > Think of it as a **stack (LIFO)** — Last In, First Out
 
@@ -1131,7 +1133,7 @@ second();
 
 3. back to `second()` → removed
 
-# 🔹 6.3. Web APIs (Browser/Node Helpers)
+# 6.3. 🔹 Web APIs (Browser/Node Helpers)
 
 Async operations don’t run in the stack:
 
@@ -1143,7 +1145,7 @@ Async operations don’t run in the stack:
 
 👉 They go to **Web APIs**, then to queues
 
-# 🔹 6.5. Two Queues (Very Important)
+# 6.4. 🔹 Two Queues (Very Important)
 
 ## 🔸 Microtask Queue (HIGH priority 🚀)
 
@@ -1161,13 +1163,13 @@ Async operations don’t run in the stack:
 
 * Events (click, etc.)
 
-# 🔹 6.6. Execution Priority
+# 6.5. 🔹 Execution Priority
 
 👉 Order is always:
 
 > **Call Stack → Microtasks → Macrotasks**
 
-# 🔹 6.7. Classic Example
+# 6.6. 🔹 Classic Example
 
 ```javascript
 console.log("Start");
@@ -1207,7 +1209,7 @@ Now stack is empty 👇
 
 ---
 
-# 🔹 6.8. Important Rule
+# 6.7. 🔹 Important Rule
 
 👉 After every task:
 
@@ -1217,7 +1219,7 @@ Now stack is empty 👇
 
 ---
 
-# 🔹 6.9. Another Tricky Example
+# 6.8. 🔹 Another Tricky Example
 
 ```javascript
 setTimeout(() => console.log("A"), 0);
@@ -1241,7 +1243,7 @@ A
 
 ---
 
-# 🔹 6.10. Why This Matters
+# 6.9. 🔹 Why This Matters
 
 * Prevents UI blocking
 
@@ -1257,7 +1259,7 @@ A
 
   * Performance optimization
 
-# 🔹 Visual Flow
+# 6.10. 🔹 Visual Flow
 
 ```javascript
 Call Stack
@@ -1285,7 +1287,7 @@ Macrotask Queue (ONE task)
 
 * **Promises:** Learn how to handle operations that take time (like fetching data) using Promises to avoid "callback hell".
 
-# 🔹 1. What is a Promise?
+## 6.11. 🔹 What is a Promise?
 
 > A **Promise** represents a value that will be available **now, later, or never**
 
@@ -1297,7 +1299,7 @@ Macrotask Queue (ONE task)
 
 * **Rejected** → error (`reject`)
 
-# 🔹 2. Creating a Promise
+## 6.12. 🔹 Creating a Promise
 
 ```javascript
 const myPromise = new Promise((resolve, reject) => {
@@ -1310,7 +1312,7 @@ const myPromise = new Promise((resolve, reject) => {
 });
 ```
 
-# 🔹 3. Consuming a Promise
+## 6.13. 🔹 Consuming a Promise
 
 ```javascript
 myPromise
@@ -1319,7 +1321,7 @@ myPromise
   .finally(() => console.log("Done"));  // always runs
 ```
 
-# 🔹 4. Real Example (Async Task)
+## 6.14. 🔹 Real Example (Async Task)
 
 ```javascript
 function fetchData() {
@@ -1332,7 +1334,7 @@ function fetchData() {
 fetchData().then(data => console.log(data));
 ```
 
-# 🔹 5. Callback Hell ❌
+## 6.15. 🔹 Callback Hell ❌
 
 ```javascript
 setTimeout(() => {
@@ -1348,7 +1350,7 @@ setTimeout(() => {
 
 👉 Hard to read, maintain, and debug
 
-# 🔹 6. Promises Fix This ✅
+## 6.16. 🔹 Promises Fix This ✅
 
 ```javascript
 function step1() {
@@ -1374,7 +1376,7 @@ step1()
 
 👉 Clean and readable chaining
 
-# 🔹 7. Error Handling
+## 6.17. 🔹 Error Handling
 
 ```javascript
 fetchData()
@@ -1386,7 +1388,7 @@ fetchData()
 
 👉 Errors automatically move to `.catch()`
 
-# 🔹 8. Promise Chaining Rules
+## 6.18. 🔹 Promise Chaining Rules
 
 * `.then()` returns a new Promise
 
@@ -1394,9 +1396,9 @@ fetchData()
 
 * Errors skip directly to `.catch()`
 
-# 🔹 9. Promise Methods (Important)
+## 6.19. 🔹 Promise Methods (Important)
 
-### ✅ `Promise.all()`
+### 6.19.1. ✅ `Promise.all()`
 
 ```javascript
 Promise.all([promise1, promise2])
@@ -1405,7 +1407,7 @@ Promise.all([promise1, promise2])
 
 👉 Runs in parallel, fails if any fails
 
-### ✅ `Promise.allSettled()`
+### 6.19.2. ✅ `Promise.allSettled()`
 
 ```javascript
 Promise.allSettled([promise1, promise2]);
@@ -1413,7 +1415,7 @@ Promise.allSettled([promise1, promise2]);
 
 👉 Waits for all (success or fail)
 
-### ✅ `Promise.race()`
+### 6.19.3. ✅ `Promise.race()`
 
 ```javascript
 Promise.race([promise1, promise2]);
@@ -1421,7 +1423,7 @@ Promise.race([promise1, promise2]);
 
 👉 Returns first completed
 
-# 🔹 10. Modern Alternative → `async/await`
+## 6.20. 🔹 Modern Alternative → `async/await`
 
 ```javascript
 async function getData() {
@@ -1436,7 +1438,7 @@ async function getData() {
 
 👉 Cleaner, looks like synchronous code
 
-# 🔹 Why Promises Matter
+## 6.21. 🔹 Why Promises Matter
 
 * ✅ Avoid callback hell
 
@@ -1462,7 +1464,7 @@ Best practice:
 
 **`async` / `await`** is modern JavaScript syntax built on top of Promises that lets you write **asynchronous code in a clean, top-to-bottom (synchronous-looking) way**.
 
-# 🔹 1. What is `async`?
+## 7.1. 🔹 What is `async`?
 
 > An `async` function **always returns a Promise**
 
@@ -1475,7 +1477,7 @@ greet().then(console.log); // Hello
 
 👉 Even though it returns a string, it’s wrapped in a Promise
 
-# 🔹 2. What is `await`?
+## 7.2. 🔹 What is `await`?
 
 > `await` pauses execution **until a Promise resolves**
 
@@ -1494,7 +1496,7 @@ getData(); // Data received
 
 👉 Code looks synchronous, but it’s async behind the scenes
 
-# 🔹 3. Before vs After
+## 7.3. 🔹 Before vs After
 
 ### ❌ Using `.then()`
 
@@ -1516,7 +1518,7 @@ async function getData() {
 
 👉 Cleaner and easier to read
 
-# 🔹 4. Error Handling (Very Important)
+## 7.4. 🔹 Error Handling (Very Important)
 
 Use `try...catch`
 
@@ -1533,7 +1535,7 @@ async function getData() {
 
 👉 Handles rejected promises
 
-# 🔹 5. Multiple `await`
+## 7.5. 🔹 Multiple `await`
 
 ```javascript
 async function process() {
@@ -1560,7 +1562,7 @@ const [a, b] = await Promise.all([fetchA(), fetchB()]);
 
 👉 Runs both at the same time 🚀
 
-# 🔹 6. `await` Rules
+## 7.6. 🔹 `await` Rules
 
 * Only works inside **`async` functions**
 
@@ -1568,7 +1570,7 @@ const [a, b] = await Promise.all([fetchA(), fetchB()]);
 
 * Non-blocking for the event loop
 
-# 🔹 7. Event Loop Connection
+## 7.7. 🔹 Event Loop Connection
 
 👉 Even with `await`:
 
@@ -1610,7 +1612,7 @@ const data = fetchData(); // returns Promise, not actual data
 await fetchData(); // ❌ Error
 ```
 
-# 🔹 9. Real-Life Example (API)
+## 7.9. 🔹 Real-Life Example (API)
 
 ```javascript
 async function getUsers() {
@@ -1624,7 +1626,7 @@ async function getUsers() {
 }
 ```
 
-# 🔹 Why Use `async/await`?
+## 7.10. 🔹 Why Use `async/await`?
 
 * ✅ Cleaner than `.then()`
 
@@ -1656,7 +1658,7 @@ Best practice:
 
 * **Prototypes and Inheritance:** Understand **Prototypal Inheritance**, which is JavaScript's fundamental mechanism for sharing methods and data between objects.
 
-# 🔹 1. What is a Prototype?
+# 7.1. 🔹 What is a Prototype?
 
 > Every JavaScript object has a hidden property called **`[[Prototype]]`** (accessible via `__proto__`)
 
@@ -1675,7 +1677,7 @@ console.log(obj.__proto__); // Object prototype
 Object.prototype
 ```
 
-# 🔹 2. Prototype Chain
+# 7.2. 🔹 Prototype Chain
 
 > JavaScript looks for properties **up the chain**
 
@@ -1698,11 +1700,11 @@ console.log(user.toString()); // works!
 user → Object.prototype → null
 ```
 
-# 🔹 3. Prototypal Inheritance
+# 7.3. 🔹 Prototypal Inheritance
 
 > Objects can **inherit from other objects**
 
-## ✅ Using `Object.create()`
+### 7.3.1. ✅ Using `Object.create()`
 
 ```javascript
 const animal = {
@@ -1716,7 +1718,7 @@ dog.speak(); // Animal speaks
 
 👉 `dog` inherits from `animal`
 
-# 🔹 4. Constructor Functions + Prototype
+# 7.4. 🔹 Constructor Functions + Prototype
 
 Before classes, inheritance was done like this:
 
@@ -1733,7 +1735,7 @@ p1.sayHello(); // Hello Rahul
 
 👉 `sayHello` is shared via prototype (not duplicated)
 
-# 🔹 5. Why Prototypes Matter
+# 7.5. 🔹 Why Prototypes Matter
 
 Without prototypes:
 
@@ -1745,7 +1747,7 @@ With prototypes:
 
 * Methods are **shared** ✅
 
-# 🔹 6. Modern Way → `class` (Syntax Sugar)
+# 7.6. 🔹 Modern Way → `class` (Syntax Sugar)
 
 ```javascript
 class Person {
@@ -1762,7 +1764,7 @@ p1.sayHello();
 
 👉 Under the hood → still uses **prototypes**
 
-# 🔹 7. Inheritance with Classes
+# 7.7. 🔹 Inheritance with Classes
 
 ```javascript
 class Animal {
@@ -1775,7 +1777,7 @@ const d = new Dog();
 d.speak(); // Animal speaks
 ```
 
-# 🔹 8. Key Concepts Summary
+# 7.8. 🔹 Key Concepts Summary
 
 | Concept              | Meaning                |
 | -------------------- | ---------------------- |
@@ -1785,7 +1787,7 @@ d.speak(); // Animal speaks
 | `Object.create()`    | Link objects           |
 | `prototype` property | Used in constructors   |
 
-# 🔹 9. Real-Life Analogy
+# 7.9. 🔹 Real-Life Analogy
 
 > 👨 Parent → 👶 Child
 
@@ -1795,7 +1797,7 @@ d.speak(); // Animal speaks
 Dog → Animal → Object
 ```
 
-# 🔹 10. Important Notes
+# 7.10. 🔹 Important Notes
 
 * Everything in JS is based on **prototypes**
 
@@ -1823,9 +1825,9 @@ Great choice—this topic becomes **very clear with diagrams + tricky questions*
 
 ---
 
-# 🔹 1. Prototype Chain (Diagram)
+# 7.11. 🔹 Prototype Chain (Diagram)
 
-### ✅ Example Code
+### 7.11.1. ✅ Example Code
 
 ```javascript
 const animal = {
@@ -1846,7 +1848,7 @@ dog
                                                       └── [[Prototype]] → null
 ```
 
-### 👉 How Lookup Works
+### 7.11.3. 👉 How Lookup Works
 
 ```javascript
 console.log(dog.eats); // true
@@ -1860,7 +1862,7 @@ Steps:
 
 3. Return value
 
-# 🔹 2. Constructor Function Diagram
+# 7.12. 🔹 Constructor Function Diagram
 
 ```javascript
 function Person(name) {
@@ -1882,13 +1884,13 @@ p1
                            └── [[Prototype]] ───▶ Object.prototype
 ```
 
-### 👉 Key Idea
+### 7.12.2. 👉 Key Idea
 
 * `p1.__proto__ === Person.prototype` ✅
 
 * Methods live in **prototype**, not inside object
 
-# 🔹 3. Class (Same Under the Hood)
+# 7.13. 🔹 Class (Same Under the Hood)
 
 ```javascript
 class Person {
@@ -1909,7 +1911,7 @@ Person.prototype.sayHi = function() {}
 
 * **ES6 Classes:** Learn the modern `class` syntax, how to use `constructor` functions, how to subclass using `extends` and `super()`, and how to implement **static methods and private fields** (using the `#` prefix).
 
-# 🔹 1. Basic Class Syntax
+# 8.1. 🔹 Basic Class Syntax
 
 ```javascript
 class Person {
@@ -1927,7 +1929,7 @@ p1.greet(); // Hello, I'm Amit
 
 👉 `constructor` runs when you create an object using `new`
 
-# 🔹 2. Behind the Scenes (Important)
+# 8.2. 🔹 Behind the Scenes (Important)
 
 ```javascript
 console.log(typeof Person); // function
@@ -1935,7 +1937,7 @@ console.log(typeof Person); // function
 
 👉 Classes are just **syntactic sugar over prototypes**
 
-# 🔹 3. Inheritance with `extends`
+# 8.3. 🔹 Inheritance with `extends`
 
 ```javascript
 class Animal {
@@ -1950,7 +1952,7 @@ d.speak(); // Animal speaks
 
 👉 `Dog` inherits from `Animal`
 
-# 🔹 4. Using `super()`
+# 8.4. 🔹 Using `super()`
 
 ```javascript
 class Animal {
@@ -1970,7 +1972,7 @@ console.log(d.name); // Tommy
 
 👉 `super()` is required in child constructors
 
-# 🔹 5. Method Overriding
+# 8.5. 🔹 Method Overriding
 
 ```javascript
 class Animal {
@@ -1988,7 +1990,7 @@ new Dog().speak(); // Dog barks
 
 👉 Child method overrides parent
 
-# 🔹 6. Static Methods
+# 8.6. 🔹 Static Methods
 
 > Belong to the class, not instances
 
@@ -2008,7 +2010,7 @@ const m = new MathUtil();
 // m.add(2,3); ❌ Error
 ```
 
-# 🔹 7. Private Fields (`#`)
+# 8.7. 🔹 Private Fields (`#`)
 
 > Truly private variables (ES2022+)
 
@@ -2035,7 +2037,7 @@ console.log(acc.#balance); // ❌ Error
 
 👉 Ensures **data privacy**
 
-# 🔹 8. Getters & Setters
+# 8.8. 🔹 Getters & Setters
 
 ```javascript
 class User {
@@ -2053,7 +2055,7 @@ const u = new User("Rahul");
 console.log(u.name); // Rahul
 ```
 
-# 🔹 9. Full Example
+# 8.9. 🔹 Full Example
 
 ```javascript
 class Vehicle {
@@ -2084,7 +2086,7 @@ car.accelerate();
 Car.info();
 ```
 
-# 🔹 10. Key Concepts Summary
+# 8.10. 🔹 Key Concepts Summary
 
 | Feature       | Purpose             |
 | ------------- | ------------------- |
@@ -2109,7 +2111,7 @@ Car.info();
 
 * **ES Modules (ESM):** Understand how to split your code into multiple files using **`import` and `export`** statements. You should know the difference between named exports, namespace imports, and default exports.
 
-# 🔹 1. Why Use Modules?
+# 9.1. 🔹 Why Use Modules?
 
 * ✅ Better code organization
 
@@ -2119,11 +2121,11 @@ Car.info();
 
 * ✅ Avoid global scope pollution
 
-# 🔹 2. Named Exports
+# 9.2. 🔹 Named Exports
 
 > Export multiple values by name
 
-### 📄 `math.js`
+### 9.2.1. 📄 `math.js`
 
 ```javascript
 export const add = (a, b) => a + b;
@@ -2137,17 +2139,17 @@ import { add, sub } from "./math.js";
 console.log(add(2, 3)); // 5
 ```
 
-## ✅ Rename While Importing
+## 9.2.3. ✅ Rename While Importing
 
 ```javascript
 import { add as sum } from "./math.js";
 ```
 
-# 🔹 3. Default Export
+# 9.3. 🔹 Default Export
 
 > Only **one default export per file**
 
-### 📄 `greet.js`
+### 9.3.1. 📄 `greet.js`
 
 ```javascript
 export default function greet() {
@@ -2164,7 +2166,7 @@ greet();
 
 👉 No `{}` needed
 
-# 🔹 4. Named + Default Together
+# 9.4. 🔹 Named + Default Together
 
 ```javascript
 // file.js
@@ -2177,7 +2179,7 @@ export default function hello() {}
 import hello, { x } from "./file.js";
 ```
 
-# 🔹 5. Namespace Import (`*`)
+# 9.5. 🔹 Namespace Import (`*`)
 
 > Import everything as an object
 
@@ -2189,7 +2191,7 @@ console.log(math.sub(5, 2));
 
 👉 Access via `math.methodName`
 
-# 🔹 6. Export All
+# 9.6. 🔹 Export All
 
 ```javascript
 export * from "./math.js";
@@ -2197,7 +2199,7 @@ export * from "./math.js";
 
 👉 Re-export everything
 
-# 🔹 7. Important Rules
+# 9.7. 🔹 Important Rules
 
 * File must use:
 
@@ -2211,19 +2213,19 @@ export * from "./math.js";
 
 # 🔹 8. Common Mistakes
 
-### ❌ Wrong Import
+### 9.8.1. ❌ Wrong Import
 
 ```javascript
 import add from "./math.js"; // ❌ if it's named export
 ```
 
-### ❌ Missing Extension
+### 9.8.2. ❌ Missing Extension
 
 ```javascript
 import { add } from "./math"; // ❌ in browser
 ```
 
-# 🔹 9. Quick Comparison
+# 9.9. 🔹 Quick Comparison
 
 | Type             | Syntax            | Notes             |
 | ---------------- | ----------------- | ----------------- |
@@ -2231,7 +2233,7 @@ import { add } from "./math"; // ❌ in browser
 | Default Export   | `export default`  | One per file      |
 | Namespace Import | `import * as obj` | All in one object |
 
-# 🔹 10. Real-Life Example Structure
+# 9.10. 🔹 Real-Life Example Structure
 
 ```
 
@@ -2261,11 +2263,11 @@ project/
 
 * Use **default export** for main functionality of a file
 
-# 9. Browser Interaction (The DOM)
+# 10.1. 🔹 What is the DOM?
 
 * **DOM Manipulation** is how JavaScript interacts with your web page—letting you **select, create, update, and delete HTML elements dynamically**.
 
-# 🔹 1. What is the DOM?
+# 9.11. 🔹 Selecting Elements
 
 > The **DOM (Document Object Model)** represents your HTML as a **tree of objects**
 
@@ -2278,7 +2280,7 @@ project/
 
 👉 JavaScript can read & modify this structure
 
-# 🔹 2. Selecting Elements
+# 9.2. 🔹 Selecting Elements
 
 ### ✅ Common Methods
 
@@ -2298,7 +2300,7 @@ const all = document.querySelectorAll(".item");
 
 👉 `querySelectorAll` = all matches (NodeList)
 
-# 🔹 3. Modifying Content
+# 9.3. 🔹 Modifying Content
 
 ```javascript
 const el = document.querySelector("#title");
@@ -2310,14 +2312,14 @@ el.innerHTML = "<span>Styled Title</span>";
 
 👉 `innerHTML` → allows HTML (be careful ⚠️)
 
-# 🔹 4. Changing Styles
+# 9.4. 🔹 Changing Styles
 
 ```javascript
 el.style.color = "red";
 el.style.fontSize = "20px";
 ```
 
-## ✅ Better Approach → Classes
+## 9.4.1. ✅ Better Approach → Classes
 
 ```javascript
 el.classList.add("active");
@@ -2325,20 +2327,20 @@ el.classList.remove("active");
 el.classList.toggle("active");
 ```
 
-# 🔹 5. Creating Elements
+# 9.5. 🔹 Creating Elements
 
 ```javascript
 const newDiv = document.createElement("div");
 newDiv.textContent = "Hello World";
 ```
 
-# 🔹 6. Adding to DOM
+# 9.6. 🔹 Adding to DOM
 
 ```javascript
 document.body.appendChild(newDiv);
 ```
 
-## ✅ Modern Methods
+## 9.6.1. ✅ Modern Methods
 
 ```javascript
 parent.append(newDiv);
@@ -2347,13 +2349,13 @@ parent.before(newDiv);
 parent.after(newDiv);
 ```
 
-# 🔹 7. Removing Elements
+# 9.7. 🔹 Removing Elements
 
 ```javascript
 el.remove();
 ```
 
-# 🔹 8. Event Handling (Very Important)
+# 9.8. 🔹 Event Handling (Very Important)
 
 ```javascript
 const btn = document.querySelector("button");
@@ -2362,7 +2364,7 @@ btn.addEventListener("click", () => {
 });
 ```
 
-# 🔹 9. Real Example
+# 9.9. 🔹 Real Example
 
 ```javascript
 const list = document.querySelector("#list");
@@ -2376,7 +2378,7 @@ btn.addEventListener("click", () => {
 
 👉 Adds items dynamically
 
-# 🔹 10. Traversing DOM
+# 9.10. 🔹 Traversing DOM
 
 ```javascript
 el.parentElement
@@ -2385,7 +2387,7 @@ el.firstElementChild
 el.nextElementSibling
 ```
 
-# 🔹 11. Best Practices
+# 9.11. 🔹 Best Practices
 
 * ✅ Use `querySelector` (modern)
 
@@ -2397,7 +2399,7 @@ el.nextElementSibling
 
 * **Events:** Understand how to listen for user interactions (clicks, keyboard input) and grasp concepts like **event bubbling, capturing, and delegation**.
 
-# **Events in JavaScript (User Interactions)**
+# **10.1. Events in JavaScript (User Interactions)**
 
 Events are actions that happen in the browser, usually triggered by the user.
 
@@ -2413,7 +2415,7 @@ Events are actions that happen in the browser, usually triggered by the user.
 | **submit**                | Form is submitted                    |
 | **mouseover / mouseout** | Mouse enters/leaves element          |
 
-# **1) Listening for Events**
+# **10.2. Listening for Events**
 
 You can listen to events using **`addEventListener()`**.
 
@@ -2438,7 +2440,7 @@ document.addEventListener("keydown", function (event) {
 
 ---
 
-# **2) The Event Object**
+# **10.3. The Event Object**
 
 Whenever an event happens, JavaScript gives you an **event object**.
 
@@ -2458,7 +2460,7 @@ Useful properties:
 
 * `event.type` → type of event (`click`, `keydown`, etc.)
 
-# **3) Event Bubbling**
+# **10.4. Event Bubbling**
 
 **Bubbling** means:
 
@@ -2492,7 +2494,7 @@ Parent clicked
 
 ✅ Event travels **upward** = **bubbling**
 
-# **4) Event Capturing (Trickling)**
+# **10.5. Event Capturing (Trickling)**
 
 **Capturing** is the opposite of bubbling.
 
@@ -2524,7 +2526,7 @@ Child clicked
 
 ✅ Event travels **downward first** = **capturing**
 
-# **5) Event Flow (Important Interview Concept)**
+# **10.6. Event Flow (Important Interview Concept)**
 
 An event generally has **3 phases**:
 
@@ -2538,7 +2540,7 @@ So if you click a button inside a div:
 
 **Window → Document → HTML → Body → Div → Button → Div → Body → HTML → Document → Window**
 
-# **6) Stop Bubbling / Stop Propagation**
+# **10.7. Stop Bubbling / Stop Propagation**
 
 If you don’t want the event to continue to parent elements:
 
@@ -2551,7 +2553,7 @@ document.getElementById("child").addEventListener("click", (event) => {
 
 Now clicking child will **not trigger parent click handler**.
 
-# **7) Event Delegation (Very Important)**
+# **10.8. Event Delegation (Very Important)**
 
 **Event delegation** means:
 
@@ -2601,7 +2603,7 @@ Use:
 list.addEventListener("click", ...);
 ```
 
-# **8) Real Benefit of Event Delegation with Dynamic Elements**
+# **10.9. Real Benefit of Event Delegation with Dynamic Elements**
 
 If new list items are added later:
 
@@ -2617,7 +2619,7 @@ The parent listener still works.
 
 ✅ This is why delegation is very useful.
 
-# **9) Quick Comparison**
+# **10.10. Quick Comparison**
 
 ## **Bubbling**
 
@@ -2639,7 +2641,7 @@ The parent listener still works.
 
 * Works because of **bubbling**
 
-# **10) Best Practice Example**
+# **10.11. Best Practice Example**
 
 ```javascript
 document.addEventListener("click", function (event) {
@@ -2659,7 +2661,7 @@ This is powerful for:
 
 * Salesforce LWC / Aura DOM interaction concepts too (similar event flow thinking)
 
-# **11) Easy Memory Trick**
+# **10.12. Easy Memory Trick**
 
 * **Bubbling** = **inside → outside**
 
@@ -2667,7 +2669,7 @@ This is powerful for:
 
 * **Delegation** = **listen on parent, handle child**
 
-# **12) Interview-Ready Short Answer**
+# **10.13. Interview-Ready Short Answer**
 
 > In JavaScript, events are user or browser actions like clicks or key presses. We listen to them using `addEventListener()`. By default, events follow **bubbling**, where the event moves from the target element up to its ancestors. In **capturing**, the event moves from ancestors down to the target. **Event delegation** uses bubbling by attaching a single listener to a parent element and checking `event.target`, which improves performance and supports dynamically added elements.
 
@@ -2687,11 +2689,11 @@ Common types:
 
 Both are part of the **Web Storage API**
 
-## 🟢 Local Storage
+## 11.2. 🟢 Local Storage
 
 Stores data **permanently (until manually cleared)**
 
-### 🔹 Key Features:
+### 11.2.1. 🔹 Key Features:
 
 * Data persists even after closing the browser
 
@@ -2720,11 +2722,11 @@ localStorage.clear();
 
 * Store user settings
 
-## 🟡 Session Storage
+## 11.3. 🟡 Session Storage
 
 Stores data **only for one browser session**
 
-### 🔹 Key Features:
+### 11.3.1. 🔹 Key Features:
 
 * Data is deleted when tab is closed
 
@@ -2751,7 +2753,7 @@ sessionStorage.removeItem("sessionUser");
 
 * One-time user actions
 
-## ⚡ Key Differences
+## 11.4. ⚡ Key Differences
 
 | Feature     | Local Storage          | Session Storage  |
 | ----------- | ---------------------- | ---------------- |
@@ -2760,7 +2762,7 @@ sessionStorage.removeItem("sessionUser");
 | Persistence | Yes                    | No               |
 | Use Case    | Long-term data         | Temporary data   |
 
-## ⚠️ Important Notes
+## 11.5. ⚠️ Important Notes
 
 * Data is stored as **strings only**
 
